@@ -15,8 +15,9 @@ def get_min_dimensions(flattened):
     print('Minimum dimensions required for 95% retention = ', min_dim)
     return min_dim
 
-def doPCA(flattened):
-    dim = get_min_dimensions(flattened)
+def doPCA(flattened, dim=None):
+    if dim is None:
+        dim = get_min_dimensions(flattened)
     pca = PCA(dim)
     projected = pca.fit_transform(flattened)
     return projected
