@@ -83,7 +83,7 @@ def plot_learning_curves(history):
     plt.show()
 
 
-def get_training_testing_data(root, height, width, batch_size):
+def get_training_testing_data_monkey(root, height, width, batch_size):
 
     train_directory = pathlib.Path(f'{root}/training/training/')
     test_directory = pathlib.Path(f'{root}/validation/validation/')
