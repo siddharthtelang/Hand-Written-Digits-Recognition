@@ -42,41 +42,6 @@ def get_model():
     return model
 
 
-def plot_learning_curves(history):
-    """Plots learning curves
-
-    Args:
-        history (tensorflow history): training history
-    """
-    fig, axs = plt.subplots(2, 2, figsize=(10,10))
-    acc = history.history['accuracy']
-    val_acc = history.history['val_accuracy']
-    loss = history.history['loss']
-    val_loss = history.history['val_loss']
-    epochs = range(len(acc))
-
-    axs[0,0].plot(loss)
-    axs[0,0].plot(val_loss)
-    axs[0,0].title.set_text('Training Loss vs Validation Loss')
-    axs[0,0].legend(['Training', 'Validation'])
-
-    axs[0,1].plot(acc)
-    axs[0,1].plot(val_acc)
-    axs[0,1].title.set_text('Training Accuracy vs Validation Accuracy')
-    axs[0,1].legend(['Training', 'Validation'])
-
-    axs[1,0].plot(epochs, acc, 'r', label='Training accuracy')
-    axs[1,0].plot(epochs, loss, 'b', label='Training Loss')
-    axs[1,0].title.set_text('Training accuracy vs Training loss')
-    axs[1,0].legend(loc=0)
-
-    axs[1,1].plot(epochs, val_acc, 'r', label='Validation accuracy')
-    axs[1,1].plot(epochs, val_loss, 'b', label='Validation Loss')
-    axs[1,1].title.set_text('Validation accuracy vs Validation loss')
-    axs[1,1].legend(loc=0)
-    plt.show()
-
-
 def display_report(model, test, y_test):
     """Display report
 
