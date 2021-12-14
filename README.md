@@ -62,7 +62,7 @@ https://drive.google.com/file/d/1Dx19LPN9bCo9OBpq9wDku3oMzrkFG8mP/view?usp=shari
 ```
 - python3 LogisticRegressionCLassifier.py -training 10000 -testing 1000 -mda True
 - python3 LogisticRegressionCLassifier.py -training 10000 -testing 1000 -pca True
-- python 3 LogisticRegressionCLassifier.py -training 10000 -testing 1000 -mda True -step 0.1 -iter 100 -reg 0.01
+- python3 LogisticRegressionCLassifier.py -training 10000 -testing 1000 -mda True -step 0.1 -iter 100 -reg 0.01
 ```
 
 ### Kernel SVM
@@ -79,7 +79,7 @@ python3 svmClassifier.py -pca True
 ### CNN for Handwritten digits classification
 #### Configurable: epochs (default: 30)
 ```
-python 3 cnn.py -epochs 50
+python3 cnn.py -epochs 50
 ```
 
 ### Transfer Learning
