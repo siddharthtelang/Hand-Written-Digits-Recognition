@@ -76,7 +76,7 @@ python3 svmClassifier.py -kernel 'sigmoid' -mda True
 python3 svmClassifier.py -pca True
 
 ```
-### CNN
+### CNN for Handwritten digits classification
 #### Configurable: epochs (default: 30)
 ```
 python 3 cnn.py -epochs 50
