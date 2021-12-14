@@ -1,3 +1,5 @@
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+
 # Hand-Written-Digits-Recognition
 Hand written digit recognition (MINST dataset) using Logistic Regression, SVM, Deep Neural Nets, and Transfer Learning
 
