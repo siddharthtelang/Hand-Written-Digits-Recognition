@@ -104,6 +104,8 @@ if __name__ == '__main__':
 
     plot_learning_curves(history)
 
+    print('\nTest accuracy: \n')
     score = model.evaluate(test, y_test)
+
 
     display_report(model, test, y_test)

@@ -81,7 +81,7 @@ if __name__ == '__main__':
     parser.add_argument('-testing', '--testing',required=False, default=1000, type=int)
     parser.add_argument('-step', '--step',required=False, default=0.1, type=float)
     parser.add_argument('-pca', '--pca',required=False, default=False, type=bool)
-    parser.add_argument('-mda', '--mda',required=False, default=True, type=bool)
+    parser.add_argument('-mda', '--mda',required=False, default=False, type=bool)
     parser.add_argument('-iter', '--iter',required=False, default=100, type=int)
     parser.add_argument('-reg', '--reg',required=False, default='0.01', type=float)
     parser.add_argument('-random', '--random',required=False, default=50000, type=int)
