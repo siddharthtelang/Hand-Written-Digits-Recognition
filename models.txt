@@ -1,0 +1,297 @@
+model = Sequential([
+    layers.Conv2D(4, 5, activation='relu', input_shape=(28, 28, 1)),
+    layers.MaxPooling2D(strides=(2,2)),
+    layers.Conv2D(12, 5, activation='relu'),
+    layers.MaxPooling2D(strides=(2,2)),
+    layers.Flatten(),
+    layers.Dense(10, activation='softmax')
+])
+loss: 0.0450 - accuracy: 0.9867 - val_loss: 0.1273 - val_accuracy: 0.9717
+basic-cnn
+
+loss: 0.1209 - accuracy: 0.9720
+
+
+
+cnn-2
+model = Sequential([
+    layers.Conv2D(4, 5, activation='relu', input_shape=(28, 28, 1)),
+    layers.Dropout(0.5),
+    layers.MaxPooling2D(strides=(2,2)),
+    layers.Conv2D(12, 5, activation='relu'),
+    layers.Dropout(0.5),
+    layers.MaxPooling2D(strides=(2,2)),
+    layers.Flatten(),
+    layers.Dense(10, activation='softmax')
+])
+
+loss: 0.1469 - accuracy: 0.9745
+
+
+cnn-3
+model = Sequential([
+    layers.Conv2D(12, 5, activation='relu', input_shape=(28, 28, 1)),
+    layers.Dropout(0.5),
+    layers.MaxPooling2D(strides=(2,2)),
+    layers.Conv2D(24, 5, activation='relu'),
+    layers.Dropout(0.5),
+    layers.MaxPooling2D(strides=(2,2)),
+    layers.Flatten(),
+    layers.Dense(64),
+    layers.Dense(10, activation='softmax')
+])
+accuracy: 0.9698 - val_loss: 0.0941 - val_accuracy: 0.9830
+
+loss: 0.0871 - accuracy: 0.9838
+
+
+cnn-4
+model = Sequential([
+    layers.Conv2D(12, 5, activation='relu', input_shape=(28, 28, 1)),
+    layers.Dropout(0.5),
+    layers.MaxPooling2D(strides=(2,2)),
+    layers.Conv2D(24, 5, activation='relu'),
+    layers.Dropout(0.5),
+    layers.MaxPooling2D(strides=(2,2)),
+    layers.Flatten(),
+    layers.Dense(40),
+    layers.Dense(10, activation='softmax')
+])
+
+loss: 0.0940 - accuracy: 0.9722 - val_loss: 0.0827 - val_accuracy: 0.9831
+
+loss: 0.0772 - accuracy: 0.9859
+
+
+
+cnn-5 - lr = 0.01
+loss: 0.2788 - accuracy: 0.9135 - val_loss: 0.3336 - val_accuracy: 0.9109
+loss: 0.3284 - accuracy: 0.9151
+
+
+
+cnn-6 - lr = 0.0001 , add more filters, reduce kernel size
+model = Sequential([
+    layers.Conv2D(24, 3, activation='relu', input_shape=(28, 28, 1)),
+    layers.Dropout(0.5),
+    layers.MaxPooling2D(strides=(2,2)),
+    layers.Conv2D(48, 3, activation='relu'),
+    layers.Dropout(0.5),
+    layers.MaxPooling2D(strides=(2,2)),
+    layers.Flatten(),
+    layers.Dense(40, activation='relu'),
+    layers.Dense(10, activation='softmax')
+])
+loss: 0.0724 - accuracy: 0.9897
+
+
+++ epochs: 30
+
+
+cnn-7 ++ conv2d layer
+model = Sequential([
+    layers.Conv2D(24, 3, activation='relu', input_shape=(28, 28, 1)),
+    layers.Dropout(0.5),
+    layers.MaxPooling2D(strides=(2,2)),
+    layers.Conv2D(48, 3, activation='relu'),
+    layers.Conv2D(48, 3, activation='relu'),
+    layers.Dropout(0.5),
+    layers.MaxPooling2D(strides=(2,2)),
+    layers.Flatten(),
+    layers.Dense(40, activation='relu'),
+    layers.Dense(10, activation='softmax')
+])
+loss: 0.0275 - accuracy: 0.9909 - val_loss: 0.0495 - val_accuracy: 0.9904
+
+loss: 0.0462 - accuracy: 0.9911
+
+
+cnn-8 ++ conv2d layer
+model = Sequential([
+    layers.Conv2D(24, 3, activation='relu', input_shape=(28, 28, 1)),
+    layers.Conv2D(24, 3, activation='relu'),
+    layers.Dropout(0.5),
+    layers.MaxPooling2D(strides=(2,2)),
+    layers.Conv2D(48, 3, activation='relu'),
+    layers.Conv2D(48, 3, activation='relu'),
+    layers.Dropout(0.5),
+    layers.MaxPooling2D(strides=(2,2)),
+    layers.Flatten(),
+    layers.Dense(40, activation='relu'),
+    layers.Dense(10, activation='softmax')
+])
+loss: 0.0168 - accuracy: 0.9943 - val_loss: 0.0302 - val_accuracy: 0.9928
+
+loss: 0.0264 - accuracy: 0.9933
+
+
+++ epochs : 50 and early stopping
+
+cnn-9 ++ conv2d layer of 48 filters (stopped at 38 epoch)
+model = Sequential([
+    layers.Conv2D(24, 3, activation='relu', input_shape=(28, 28, 1)),
+    layers.Conv2D(24, 3, activation='relu'),
+    layers.Dropout(0.5),
+    layers.MaxPooling2D(strides=(2,2)),
+    layers.Conv2D(48, 3, activation='relu'),
+    layers.Conv2D(48, 3, activation='relu'),
+    layers.Conv2D(48, 3, activation='relu'),
+    layers.Dropout(0.5),
+    layers.MaxPooling2D(strides=(2,2)),
+    layers.Flatten(),
+    layers.Dense(40, activation='relu'),
+    layers.Dense(10, activation='softmax')
+])
+loss: 0.0270 - accuracy: 0.9937
+
+
+cnn-10 add more dense layer
+
+model = Sequential([
+    layers.Conv2D(24, 3, activation='relu', input_shape=(28, 28, 1)),
+    layers.Conv2D(24, 3, activation='relu'),
+    layers.Dropout(0.5),
+    layers.MaxPooling2D(strides=(2,2)),
+    layers.Conv2D(48, 3, activation='relu'),
+    layers.Conv2D(48, 3, activation='relu'),
+    layers.Conv2D(48, 3, activation='relu'),
+    layers.Dropout(0.5),
+    layers.MaxPooling2D(strides=(2,2)),
+    layers.Flatten(),
+    layers.Dense(64, activation='relu'),
+    layers.Dense(10, activation='softmax')
+])
+
+loss: 0.0112 - accuracy: 0.9960 - val_loss: 0.0234 - val_accuracy: 0.9938
+
+loss: 0.0218 - accuracy: 0.9944
+
+
+
+model = Sequential([
+    layers.Conv2D(32, 3, padding = 'same', activation='relu', input_shape=(28, 28, 1)),
+    layers.Conv2D(32, 3, padding = 'same', activation='relu'),
+    layers.BatchNormalization(),
+    layers.MaxPooling2D(),
+    layers.Dropout(0.25),
+
+    layers.Conv2D(64, 3, padding = 'same', activation='relu'),
+    layers.Conv2D(64, 3, padding = 'same', activation='relu'),
+    layers.BatchNormalization(),
+    layers.MaxPooling2D(),
+    layers.Dropout(0.25),
+
+    layers.Conv2D(128, 3, padding = 'same', activation='relu'),
+    layers.Conv2D(128, 3, padding = 'same', activation='relu'),
+    layers.BatchNormalization(),
+    layers.MaxPooling2D(),
+    layers.Dropout(0.25),
+
+    layers.Flatten(),
+
+    layers.Dense(512, activation='relu'),
+    layers.BatchNormalization(),
+    layers.Dropout(0.5),
+
+    layers.Dense(256, activation='relu'),
+    layers.BatchNormalization(),
+    layers.Dropout(0.4),
+
+    layers.Dense(64, activation='relu'),
+    layers.BatchNormalization(),
+    layers.Dropout(0.3),
+
+    layers.Dense(10, activation='softmax')
+])
+
+
+
+
+batch = 16
+loss: 0.0096 - accuracy: 0.9968 - val_loss: 0.0249 - val_accuracy: 0.9919
+test .9935
+
+batch = 32
+loss: 0.0114 - accuracy: 0.9961 - val_loss: 0.0277 - val_accuracy: 0.9918
+.9930
+
+batch = 64
+accuracy: 0.9962 - val_loss: 0.0309 - val_accuracy: 0.9916
+.9926
+
+
+----------------------------------------------------------------------------------------------------------------------------
+
+Monkey
+
+cnn-1
+model = Sequential([
+    layers.Conv2D(24, 3, activation='relu', input_shape=(height, width, 3)),
+    layers.Conv2D(24, 3, activation='relu'),
+    layers.Dropout(0.5),
+    layers.MaxPooling2D(strides=(2,2)),
+    layers.Conv2D(48, 3, activation='relu'),
+    layers.Conv2D(48, 3, activation='relu'),
+    layers.Conv2D(48, 3, activation='relu'),
+    layers.Dropout(0.5),
+    layers.MaxPooling2D(strides=(2,2)),
+    layers.Flatten(),
+    layers.Dense(64, activation='relu'),
+    layers.Dense(10, activation='softmax')
+])
+
+loss: 0.9326 - accuracy: 0.6799 - val_loss: 1.2576 - val_accuracy: 0.6267
+loss: 1.2988 - accuracy: 0.6397
+
+
+cnn-2
+model = Sequential([
+    layers.Conv2D(32, 3, activation='relu', strides=(2,2), input_shape=(height, width, 3)),
+    layers.BatchNormalization(),
+    layers.Conv2D(32, 3, strides=(2,2), activation='relu'),
+    layers.BatchNormalization(),
+    layers.MaxPooling2D(),
+    layers.Dropout(0.25),
+    layers.Conv2D(64, 3, strides=(2,2), activation='relu'),
+    layers.BatchNormalization(),
+    layers.Conv2D(64, 3, strides=(2,2), activation='relu'),
+    layers.BatchNormalization(),
+    layers.MaxPooling2D(),
+    layers.Dropout(0.25),
+    layers.Flatten(),
+    layers.Dense(512, activation='relu'),
+    layers.BatchNormalization(),
+    layers.Dense(10, activation='softmax')
+])
+
+loss: 0.7174 - accuracy: 0.7426
+loss: 0.4206 - accuracy: 0.8593 - val_loss: 1.2532 - val_accuracy: 0.6590
+
+
+
+
+
+Transfer learning 
+
+
+1)cnn-2
+128 dense, 10 o/p, last three layer of VGG trainable
+loss: 0.0906 - accuracy: 0.9818 - val_loss: 0.3923 - val_accuracy: 0.8525
+loss: 0.3563 - accuracy: 0.8824
+
+2) cnn-3
+256 dense, 10 o/p, vgg non-trainable
+loss: 0.6108 - accuracy: 0.8104 - val_loss: 0.7224 - val_accuracy: 0.7426
+
+3) cnn-4 - last layers trainable
+(figure) 
+loss: 0.0704 - accuracy: 0.9830 - val_loss: 0.3966 - val_accuracy: 0.8713
+
+4) cnn-5 Non-trainable layers
+BatchNormalization figure
+loss: 0.5406 - accuracy: 0.8343 - val_loss: 0.8135 - val_accuracy: 0.7353
+
+5) cnn-6 trainable (same as cnn-4) (but testing data sepearate)
+loss: 0.0335 - accuracy: 0.9943 - val_loss: 0.4047 - val_accuracy: 0.8529
+
+loss: 0.4362 - accuracy: 0.8750
